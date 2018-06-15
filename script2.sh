@@ -26,3 +26,12 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt-get update
 
 sudo apt-get install -y jenkins
+
+echo "nexus installing..."
+
+sudo wget http://www.sonatype.org/downloads/nexus-latest-bundle.zip -P /home/vagrant/Downloads
+cd /home/vagrant/Downloads
+sudo chmod 777 nexus-latest-bundle.zip
+sudo unzip nexus-latest-bundle.zip
+cd nexus-2.14.8-01/bin
+sudo RUN_AS_USER=root ./nexus start
